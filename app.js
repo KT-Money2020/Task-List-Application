@@ -6,7 +6,7 @@
 
 const form = document.querySelector("#task-form");
 const taskList = document.querySelector(".collection");
-const clearBtn = document.querySelector(".clear-task");
+const clearBtn = document.querySelector(".clear-tasks");
 const filter = document.querySelector("#filter");
 const taskInput = document.querySelector("#task");
 
@@ -18,6 +18,8 @@ function loadEventListeners(){
     form.addEventListener('submit', addTask);
     //Remove task event
     taskList.addEventListener('click', removeTask);
+    //Clear task event 
+    clearBtn.addEventListener('click', clearTasks);
 }
 
 function addTask(e){
@@ -66,7 +68,13 @@ function removeTask(e) {
 
 }
 
+//Clear Tasks
 
+function clearTasks(){
+    while(taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+}
 
 
 
